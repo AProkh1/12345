@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main(){
+    double a1 = 0.0;
+    long long a2;
+    char a3[150];
+    printf("Напишите целое число\n");
+    scanf("%d", &a2);
+    printf("\n");
+    printf("Напишите вещественное число\n");
+    scanf("%lf", &a1);
+    printf("Напишите символ\n");
+    scanf("%s", &a3);
+    printf("%d", a2);
+    printf("\n");
+    printf("%f", a1);
+    printf("\n");
+    printf("%s", a3);
+    printf("\n");
+    return 0;
+}
