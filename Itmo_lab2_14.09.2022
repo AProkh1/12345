@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <math.h>
+
+int main(){
+    int a;
+    double z1, z11, z12;
+    z1=0;
+    double z2;
+    z2=0;
+
+    scanf("%lf", &a);
+    z11 = ((1+a+a*a)/(2*a+a*a)+2-(1-a+a*a)/(2*a-a*a));
+    z11 = pow(z11,-1);
+    z12 = (5-2*a*a);
+    z1 = z11*z12;
+    printf("%lf", z1);
+    printf("\n");
+
+    z2=(4-a*a)/2;
+    printf("%lf", z2);
+    printf("\n");
+}
