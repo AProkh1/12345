@@ -1,0 +1,48 @@
+#include <stdio.h>
+#include <string.h>
+
+void task2(){
+    char s1[100] = "Lab";
+    char s2[100] = "8aaaaa";
+    strncat(s1, s2, 1);
+    printf("s1: %s\n\n",s1);
+}
+
+void task5(){
+    char s1[100] = "000000000000";
+    char s2[100] = "12345";
+    strcpy(s1, s2);
+    printf("s1: %s\n\n", s1);
+}
+
+void task6(){
+    char s1[100] = "000000000000";
+    char s2[100] = "12345";
+    strncpy(s1, s2, 5);
+    printf("s1: %s\n\n", s1);
+}
+
+void task9(){
+    int index = 0;
+    char str[] = "0000000100000100001000110100100";
+    for (int i = 0; i < sizeof(str); i++){
+        if (str[i] == '1'){
+            index = i;
+        }
+    }
+    printf("last - %i\n\n", index);
+}
+
+void task12(){
+    char s1[] = "0123678";
+    char s2[] = "jwxkxm12d23";
+    printf ("Длина отрезка: %d\n",strcspn (s2,s1));
+}
+
+int main(){
+    task2();
+    task5();
+    task6();
+    task9();
+    task12();
+}
