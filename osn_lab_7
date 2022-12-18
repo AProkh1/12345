@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+enum Os {
+    Symbian, Embedded_Linux, Windows_CE, VxWorks, QNX
+};
+struct Square {
+    float x_Coord;
+    float y_Coord;
+    float lenth;
+};
+
+float GetArea(float lenth) {
+    
+    return lenth*lenth;
+};
+struct All_numbs {
+    unsigned int als: 4;
+};
+union keyboard {
+    struct All_numbs alls;
+    struct {
+        unsigned int ready: 1;
+        unsigned int ton: 1;
+        unsigned int bar: 1;
+        unsigned int paper: 1;
+    } tmp;
+};
+
+int main() {
+    char status[2][4] = {"Off", "On"};
+    enum Os sym = Symbian;
+    printf("Os - %d\n", sym);
+    struct Square c1 = {10, 10, 10};
+    float area = GetArea(c1.lenth);
+    printf("%f\n", area);
+    int num;
+    scanf("%x", &num);
+    struct All_numbs mp = {num};
+    union keyboard keyboard;
+    keyboard.alls = mp;
+    printf("Ready-%s\nTon-%s\nBar-%s\nPaper-%s\n", status[keyboard.tmp.ready],status[keyboard.tmp.ton],status[keyboard.tmp.bar],status[keyboard.tmp.paper]);
+    return 0;
+}
