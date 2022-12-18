@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdbool.h>
+
+void task2(){
+    char a[80] = {'\0'};
+    int countNumber = 0, countUpper = 0, countLower = 0;
+    printf("\n Input line: \n");
+    gets(a);
+    for (int n = 0; n < sizeof(a) / sizeof(char) - 1; n++){
+        if (a[n] >= '0' && a[n] <= '9') countNumber++;
+        else if (a[n] >= 'A' && a[n] <= 'Z') countUpper++;
+        else if (a[n] >= 'a' && a[n] <= 'z') countLower++;
+    }
+    printf("\n Чисел = %d \n Строчные = %d \n Прописные = %d\n\n", countNumber, countUpper, countLower);
+    getch();
+}
+
+bool isPrime(int n){
+    if (n > 1){
+        for (int i = 2; i < n; i++){
+            if (n % i == 0){
+                return false;
+            }
+            return true;
+        }
+    }
+    else{
+        return false;
+    }
+}
+
+void task4(){
+    int n;
+    printf("Введите число\n");
+    for (int i = n; i > 0; i--){
+        if (isPrime(i)){
+            printf("Ближейшее простое число: %i", i);
+            break;
+        };
+    }
+}
+
+void main(){
+    task2();
+    task4();
+}
