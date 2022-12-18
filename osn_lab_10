@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void NOD(){
+    unsigned long n1, n2;
+    printf("Введите два числа:\n");
+    scanf("%lu%lu", &n1, &n2);
+    while(n1 && n2) {
+        if(n1 > n2){
+            n1 %= n2;
+        }
+        if(n2 > n1){
+            n2 %= n1;
+        }
+    }
+    printf("%lu", n1 | n2);
+}
+
+int NOK(){
+    int M, N, K, i;
+    printf("Введите два числа:");
+    scanf("%d%d", &M, &N);
+    if (!M || !N)
+    {
+        printf("Error\n");
+        return 1;
+    }
+ 
+    K = N * M;
+    for (i = K; i > 0; i--)
+        if (i % M == 0 && i % N == 0)
+            K = i;
+ 
+    printf("%d\n", K);
+    return 0;
+}
+
+void task1(){
+    NOD();
+    NOK();
+}
+
+void task4(){
+    char vvod[100];
+    printf("Введите число:\n");
+    printf("n\ ");
+    int otv = rec(vvod, 0, 0);
+    printf("%i", otv);
+}
+
+int rec(char str[], int ch, int ind){
+    ch+=atoi(str[ind]);
+    if (ind < sizeof(str)){
+        rec(str, ch, ind+1);
+    }
+    return ch;
+}
+
+int main(){
+    task1();
+    task4();
+}
