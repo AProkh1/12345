@@ -1,0 +1,75 @@
+#include <stdio.h>
+
+void scanM(int k, int l, int matrix[10][10]) {
+    for (int i = 0; i < k; i++) {
+        for (int j = 0; j < l; j++) {
+            scanf("%i", &matrix[i][j]);
+        }
+    }
+}
+
+void printM(int k, int l, int matrix[10][10]) {
+    printf("\n");
+    for (int i = 0; i < k; i++) {
+        for (int j = 0; j < l; j++) {
+            printf("%i ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void multi(int M1[10][10], int M2[10][10], int M3[10][10], int x1, int y1, int x2, int y2) {
+    for (int i = 0; i<x1; i++) {
+        for (int j = 0; j<y2; j++) {
+            M3[i][j] = 0;
+        }
+    }
+    for (int i = 0; i<x1; i++) {
+        for (int j = 0; j < y2; j++) {
+            for (int k = 0; k<y1; k++) {
+                M3[i][j] += M1[i][k] * M2[k][j];
+            }
+        }
+    }
+}
+
+int mu(){
+    int mas1[2][2];
+    int mas2[2][2];
+    int mas3[2][2];
+    printf("Введите значение для первой матрицы\n");
+    scanf("%d %d", &mas1[0][0], &mas1[0][1]);
+    printf("\n");
+    scanf("%d %d", &mas1[1][0], &mas1[1][1]);
+    printf("\nВведите значения для второй матрицы\n");
+    scanf("%i %i %i %i", &mas2[0][0], &mas2[0][1], &mas2[1][0], &mas2[1][1]);
+    
+    mas3[0][0] = (mas1[0][0]*mas2[0][0] + mas1[0][1]*mas2[1][0]);
+    mas3[0][1] = (mas1[0][0]*mas2[0][1] + mas1[0][1]*mas2[1][1]);
+    mas3[1][0] = (mas1[1][0]*mas2[0][0] + mas1[1][1]*mas2[1][0]);
+    mas3[1][1] = (mas1[1][0]*mas2[0][1] + mas1[1][1]*mas2[1][1]);
+    printf("%i %i \n", mas3[0][0], mas3[0][1]);
+    printf("%i %i \n", mas3[1][0], mas3[1][1]);
+    return 0;
+}
+
+int main(){
+    int x1, x2, y1, y2;
+    int M1[10][10], M2[10][10], M3[10][10];
+    printf("Введите размер первой матрицы:\n");
+    scanf("%i %i", &x1, &y1);
+    printf("\nВведите размер второй матрицы:\n");
+    scanf("%i %i", &x2, &y2);
+    if (x1 == y2) {
+        printf("\nВведите первую матрицу:\n");
+        scanM(x1, y1, M1);
+        printf("\nВведите вторую матрицу:\n");
+        scanM(x2, y2, M2);
+        multi(M1, M2, M3, x1, y1, x2, y2);
+        printM(x1, y2, M3);
+    }
+    else{
+        printf("Матрицы нельзя перемножить");
+    }
+    return 0;
+}
