@@ -5,13 +5,13 @@ int main(){
     long long a2;
     char a3[150];
     printf("Напишите целое число\n");
-    scanf("%d", &a2);
+    scanf("%lld", &a2);
     printf("\n");
     printf("Напишите вещественное число\n");
     scanf("%lf", &a1);
     printf("Напишите символ\n");
     scanf("%s", &a3);
-    printf("%d", a2);
+    printf("%lld", a2);
     printf("\n");
     printf("%f", a1);
     printf("\n");
