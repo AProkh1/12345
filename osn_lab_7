@@ -9,9 +9,9 @@ struct Square {
     float lenth;
 };
 
-float GetArea(float lenth) {
-    
-    return lenth*lenth;
+float GetArea(struct Square *sq) {
+    float l = sq->lenth;
+    return l*l;
 };
 struct All_numbs {
     unsigned int als: 4;
@@ -31,7 +31,7 @@ int main() {
     enum Os sym = Symbian;
     printf("Os - %d\n", sym);
     struct Square c1 = {10, 10, 10};
-    float area = GetArea(c1.lenth);
+    float area = GetArea(&c1);
     printf("%f\n", area);
     int num;
     scanf("%x", &num);
