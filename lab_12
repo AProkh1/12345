@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main(){
+    int mon, day, year, n;
+    int isleap = 0;
+    int month[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+    FILE *output = fopen("File", "w+");
+
+    printf("Day: ");
+    scanf("%d", &day);
+    printf("Month: ");
+    scanf("%d", &mon);
+    printf("Year: ");
+    scanf("%d", &year);
+    printf("Cycle: ");
+    scanf("%d", &n);
+
+    isleap = ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
+
+    for (int i = 1; i <= n; i++){
+        if (day + 1 > month[mon]+(isleap && mon==2)){
+            if (mon + 1 > 12){
+                mon = 1;
+                year += 1;
+                isleap = ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
+            }
+            else{
+                mon += 1;
+            }
+            day = 1;
+        }
+        else
+        {
+            day += 1;
+        }
+        printf("%02d.%02d.%4d\n", day, mon, year);
+        fprintf(output, "%02d.%02d.%4d\n", day, mon, year);
+    }
+
+    fclose(output);
+    return 0;
+}
