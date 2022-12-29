@@ -40,20 +40,23 @@ void task1(){
     NOK();
 }
 
-void task4(){
-    char vvod[100];
-    printf("Введите число:\n");
-    printf("n\ ");
-    int otv = rec(vvod, 0, 0);
-    printf("%i", otv);
+int rec(int str, int ch){
+    if (str > 0){
+        ch+=str%10;
+        str/=10;
+        rec(str, ch);
+    }else{
+        printf("%d\n", ch);
+    }
+    return 0;
 }
 
-int rec(char str[], int ch, int ind){
-    ch+=atoi(str[ind]);
-    if (ind < sizeof(str)){
-        rec(str, ch, ind+1);
-    }
-    return ch;
+void task4(){
+    int vvod;
+    printf("Введите число:\n");
+    printf("n\ ");
+    scanf("%d", &vvod);
+    rec(vvod, 0);
 }
 
 int main(){
