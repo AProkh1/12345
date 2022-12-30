@@ -31,12 +31,12 @@ int main(){
     
     clock_t end = clock();
     time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
-    printf("time is: %f\n", time_spent);
+    printf("Время выполнения рекурсией: %f\n", time_spent);
     
     time_spent = 0.0;
     clock_t begin2 = clock();
     printf("%d\n", fibo_c(40));
     clock_t end2 = clock();
     time_spent += (double)(end2 - begin2) / CLOCKS_PER_SEC;
-    printf("time is: %f\n", time_spent);
+    printf("Время выполнения циклом: %f\n", time_spent);
 }
